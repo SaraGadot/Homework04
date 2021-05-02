@@ -6,6 +6,45 @@ namespace Task1.Finance
     {
         static void Main(string[] args)
         {
+            var incomes = new int[12];
+            var randomize = new Random();
+            for (var month = 0; month < 12; month++)
+            {
+                incomes[month] = randomize.Next(7, 20) * 10_000;
+
+            }
+
+            Console.WriteLine("Месяц Доход, тыс.руб.");
+
+            for (var month = 0; month < 12; month++)
+            {
+                Console.WriteLine($"  {month+1}   {incomes[month]}");
+
+            }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             // Задание 1.
             // Заказчик просит вас написать приложение по учёту финансов
             // и продемонстрировать его работу.
