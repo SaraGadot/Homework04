@@ -6,13 +6,20 @@ namespace Task1.Finance
     {
         static void Main(string[] args)
         {
-            var incomes = new int[12];
             var randomize = new Random();
+
+            var incomes = new int[12];
             for (var month = 0; month < 12; month++)
             {
                 incomes[month] = randomize.Next(7, 20) * 10_000;
 
             }
+
+            //outcomes - расходы
+
+            //profit - прибыль
+
+            //положительные месяцы
 
             Console.WriteLine("Месяц Доход, тыс.руб.");
 
