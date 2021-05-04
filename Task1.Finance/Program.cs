@@ -15,17 +15,22 @@ namespace Task1.Finance
 
             }
 
+            var outcomes = new int[12];
+            for (var month = 0; month < 12; month++)
+            {
+                outcomes[month] = randomize.Next(7, 20) * 10_000;
+            }
             //outcomes - расходы
 
             //profit - прибыль
 
             //положительные месяцы
 
-            Console.WriteLine("Месяц Доход, тыс.руб.");
+            Console.WriteLine("Месяц Доход, тыс.руб. Расходы, тыс.руб.");
 
             for (var month = 0; month < 12; month++)
             {
-                Console.WriteLine($"  {month+1}   {incomes[month]}");
+                Console.WriteLine($"  {month+1}   {incomes[month]}          {outcomes[month]}");
 
             }
 
