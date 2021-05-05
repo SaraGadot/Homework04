@@ -28,8 +28,14 @@ namespace Task1.Finance
 
             }
 
-
-
+            var positiveProfitCount = 0;
+            for (var month = 0; month < 12; month++)
+            {
+                if (profits[month] > 0)
+                {
+                    positiveProfitCount = positiveProfitCount + 1;
+                }
+            }
             //outcomes - расходы
 
             //profit - прибыль
@@ -43,6 +49,7 @@ namespace Task1.Finance
                 Console.WriteLine($"  {month+1}   {incomes[month]}            {outcomes[month]}            {profits[month]}");
 
             }
+            Console.WriteLine($"Месяцев с положительной прибылью: {positiveProfitCount}");
 
 
 
