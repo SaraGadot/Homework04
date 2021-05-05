@@ -29,9 +29,9 @@ namespace Task1.Finance
             }
 
             var positiveProfitCount = 0;
-            for (var month = 0; month < 12; month++)
+            foreach (var profit in profits)
             {
-                if (profits[month] > 0)
+                if (profit > 0)
                 {
                     positiveProfitCount = positiveProfitCount + 1;
                 }
