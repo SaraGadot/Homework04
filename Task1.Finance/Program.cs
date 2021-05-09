@@ -36,12 +36,24 @@ namespace Task1.Finance
                     positiveProfitCount = positiveProfitCount + 1;
                 }
             }
-            //outcomes - расходы
 
-            //profit - прибыль
+            var minProfit = profits[0];
+            foreach (var profit in profits)
+            {
+                if (profit < minProfit)
+                {
+                    minProfit = profit;
+                }
+            }
+            Console.WriteLine(minProfit);
 
-            //положительные месяцы
-
+            for (var month = 0; month < 12; month++)
+            {
+                if (minProfit == profits[month])
+                {
+                    Console.WriteLine(month + 1);
+                }
+            }
             Console.WriteLine("Месяц Доход, тыс.руб. Расходы, тыс.руб. Прибыль, тыс.руб.");
 
             for (var month = 0; month < 12; month++)
