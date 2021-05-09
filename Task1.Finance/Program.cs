@@ -37,23 +37,62 @@ namespace Task1.Finance
                 }
             }
 
-            var minProfit = profits[0];
+            var minProfit1 = int.MaxValue;
             foreach (var profit in profits)
             {
-                if (profit < minProfit)
+                if (profit < minProfit1)
                 {
-                    minProfit = profit;
+                    minProfit1 = profit;
                 }
             }
-            Console.WriteLine(minProfit);
+            Console.WriteLine(minProfit1);
 
             for (var month = 0; month < 12; month++)
             {
-                if (minProfit == profits[month])
+                if (minProfit1 == profits[month])
                 {
                     Console.WriteLine(month + 1);
                 }
             }
+
+
+
+            var minProfit2 = int.MaxValue;
+            foreach (var profit in profits)
+            {
+                if (minProfit1 < profit && profit < minProfit2)
+                {
+                    minProfit2 = profit;
+                }
+            }
+            Console.WriteLine(minProfit2);
+
+            for (var month = 0; month < 12; month++)
+            {
+                if (minProfit2 == profits[month])
+                {
+                    Console.WriteLine(month + 1);
+                }
+            }
+
+            var minProfit3 = int.MaxValue;
+            foreach (var profit in profits)
+            {
+                if (minProfit2 < profit && profit < minProfit3)
+                {
+                    minProfit3 = profit;
+                }
+            }
+            Console.WriteLine(minProfit3);
+
+            for (var month = 0; month < 12; month++)
+            {
+                if (minProfit3 == profits[month])
+                {
+                    Console.WriteLine(month + 1);
+                }
+            }
+
             Console.WriteLine("Месяц Доход, тыс.руб. Расходы, тыс.руб. Прибыль, тыс.руб.");
 
             for (var month = 0; month < 12; month++)
