@@ -37,6 +37,8 @@ namespace Task1.Finance
                 }
             }
 
+
+
             var minProfit1 = int.MaxValue;
             foreach (var profit in profits)
             {
@@ -45,17 +47,6 @@ namespace Task1.Finance
                     minProfit1 = profit;
                 }
             }
-            Console.WriteLine(minProfit1);
-
-            for (var month = 0; month < 12; month++)
-            {
-                if (minProfit1 == profits[month])
-                {
-                    Console.WriteLine(month + 1);
-                }
-            }
-
-
 
             var minProfit2 = int.MaxValue;
             foreach (var profit in profits)
@@ -63,15 +54,6 @@ namespace Task1.Finance
                 if (minProfit1 < profit && profit < minProfit2)
                 {
                     minProfit2 = profit;
-                }
-            }
-            Console.WriteLine(minProfit2);
-
-            for (var month = 0; month < 12; month++)
-            {
-                if (minProfit2 == profits[month])
-                {
-                    Console.WriteLine(month + 1);
                 }
             }
 
@@ -83,15 +65,6 @@ namespace Task1.Finance
                     minProfit3 = profit;
                 }
             }
-            Console.WriteLine(minProfit3);
-
-            for (var month = 0; month < 12; month++)
-            {
-                if (minProfit3 == profits[month])
-                {
-                    Console.WriteLine(month + 1);
-                }
-            }
 
             Console.WriteLine("Месяц Доход, тыс.руб. Расходы, тыс.руб. Прибыль, тыс.руб.");
 
@@ -100,6 +73,17 @@ namespace Task1.Finance
                 Console.WriteLine($"  {month+1}   {incomes[month]}            {outcomes[month]}            {profits[month]}");
 
             }
+
+            Console.WriteLine("худшая прибыль в месяцах:");
+
+            for (var month = 0; month < 12; month++)
+            {
+                if (minProfit1 == profits[month] || minProfit2 == profits[month] || minProfit3 == profits[month])
+                {
+                    Console.WriteLine(month + 1);
+                }
+            }
+
             Console.WriteLine($"Месяцев с положительной прибылью: {positiveProfitCount}");
 
 
