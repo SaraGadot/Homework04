@@ -74,16 +74,21 @@ namespace Task1.Finance
 
             }
 
-            Console.WriteLine("худшая прибыль в месяцах:");
+            Console.Write("Худшая прибыль в месяцах:");
 
+            var isFirst = true;
             for (var month = 0; month < 12; month++)
             {
                 if (minProfit1 == profits[month] || minProfit2 == profits[month] || minProfit3 == profits[month])
                 {
-                    Console.WriteLine(month + 1);
+                    if (!isFirst)
+                        Console.Write(",");
+                    Console.Write($" {month + 1}");
+                    if (isFirst)
+                        isFirst = false;
                 }
             }
-
+            Console.WriteLine();
             Console.WriteLine($"Месяцев с положительной прибылью: {positiveProfitCount}");
 
 
