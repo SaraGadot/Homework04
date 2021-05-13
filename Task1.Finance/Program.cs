@@ -70,7 +70,7 @@ namespace Task1.Finance
 
             for (var month = 0; month < 12; month++)
             {
-                Console.WriteLine($"  {month+1}   {incomes[month]}            {outcomes[month]}            {profits[month]}");
+                Console.WriteLine($"{month+1,5} {incomes[month],14} {outcomes[month],17} {profits[month],17}");
 
             }
 
