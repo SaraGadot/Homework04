@@ -6,7 +6,8 @@ namespace Task2.Pascal
     {
         static void Main(string[] args)
         {
-            var N = 9;
+            Console.Write("Введите количество строк в треугольнике Паскаля: ");
+            var N = Convert.ToInt32(Console.ReadLine());
             var pascal = new int[N, N];
 
 
@@ -30,7 +31,7 @@ namespace Task2.Pascal
             }
             for (var row = 0; row < N; row++)
             {
-                for (var i = 0; i < (N - row) * 2; i++)
+                for (var i = 0; i < (N - row) * 4; i++)
                 {
                     Console.Write(" ");
                 }
@@ -38,7 +39,7 @@ namespace Task2.Pascal
                 {
                     var x = row - column;
                     var y = column;
-                    Console.Write($"{pascal[x, y],4} ");
+                    Console.Write($"{pascal[x, y],8} ");
                 }
                 Console.WriteLine();
             }
