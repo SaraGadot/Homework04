@@ -30,12 +30,15 @@ namespace Task2.Pascal
             }
             for (var row = 0; row < N; row++)
             {
+                for (var i = 0; i < (N - row) * 2; i++)
+                {
+                    Console.Write(" ");
+                }
                 for (var column = 0; column < row + 1; column++)
                 {
                     var x = row - column;
                     var y = column;
-                    // Console.Write($"{x},{y} ");
-                    Console.Write($"{pascal[x, y]} ");
+                    Console.Write($"{pascal[x, y],4} ");
                 }
                 Console.WriteLine();
             }
