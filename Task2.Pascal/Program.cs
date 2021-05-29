@@ -29,6 +29,13 @@ namespace Task2.Pascal
                     pascal[x, y] = pascal[x, y - 1] + pascal[x - 1, y]; 
                 }
             }
+
+            var lastRowLength = 4 + 9 * N;
+            if (Console.WindowWidth < lastRowLength)
+            {
+                Console.BufferWidth = lastRowLength;
+            }
+
             for (var row = 0; row < N; row++)
             {
                 for (var i = 0; i < (N - row) * 4; i++)
