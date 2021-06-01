@@ -6,8 +6,44 @@ namespace Task3.Matrix
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            var N = 3;
+            var M = 4;
+            var inMatrix = new int[N, M];
+            var randomize = new Random();
+            for (var x = 0; x < N; x++)
+            {
+                for (var y = 0; y < M; y++)
+                {
+                    inMatrix[x, y] = randomize.Next(0,10);
+                }
+            }
+            for (var x = 0; x < N; x++)
+            {
+                for(var y = 0; y < M; y++)
+                {
+                    Console.Write($"{inMatrix[x, y],4}");
 
+                }
+                Console.WriteLine();
+            }
+            var outMatrix = new int[N, M];
+            var k = 5;
+            for (var x = 0; x < N; x++)
+            {
+                for (var y = 0; y < M; y++)
+                {
+                    outMatrix[x, y] = inMatrix[x, y] * k;
+                }
+            }
+            for (var x = 0; x < N; x++)
+            {
+                for (var y = 0; y < M; y++)
+                {
+                    Console.Write($"{outMatrix[x, y],4}");
+
+                }
+                Console.WriteLine();
+            }
 
             // * Задание 3.1
             // Заказчику требуется приложение позволяющщее умножать математическую матрицу на число
