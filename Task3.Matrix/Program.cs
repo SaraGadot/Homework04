@@ -15,6 +15,7 @@ namespace Task3.Matrix
                 }
                 Console.WriteLine();
             }
+            Console.WriteLine();
         }
         private static int[,] GenerateMatrix(int N, int M)
         {
@@ -44,6 +45,20 @@ namespace Task3.Matrix
 
             return outMatrix;
         }
+        private static int[,] Add(int N, int M, int[,] inMatrix1, int[,] inMatrix2)
+        {
+            var outMatrix = new int[N, M];
+            var k = 5;
+            for (var x = 0; x < N; x++)
+            {
+                for (var y = 0; y < M; y++)
+                {
+                    outMatrix[x, y] = inMatrix1[x, y] + inMatrix2[x, y];
+                }
+            }
+
+            return outMatrix;
+        }
 
         static void Main(string[] args)
         {
@@ -55,6 +70,15 @@ namespace Task3.Matrix
 
             DisplayMatrix(N, M, inMatrix);
             DisplayMatrix(N, M, outMatrix);
+
+            var inMatrix1 = GenerateMatrix(N, M);
+            var inMatrix2 = GenerateMatrix(N, M);
+            var outMatrix2 = Add(N, M, inMatrix1, inMatrix2);
+
+            DisplayMatrix(N, M, inMatrix1);
+            DisplayMatrix(N, M, inMatrix2);
+            DisplayMatrix(N, M, outMatrix2);
+           
 
 
             // * Задание 3.1
