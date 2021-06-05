@@ -4,28 +4,34 @@ namespace Task3.Matrix
 {
     class Program
     {
-        static void Main(string[] args)
+        static void DisplayMatrix(int N, int M, int[,] matrix)
         {
-            var N = 3;
-            var M = 4;
+            for (var x = 0; x < N; x++)
+            {
+                for (var y = 0; y < M; y++)
+                {
+                    Console.Write($"{matrix[x, y],4}");
+
+                }
+                Console.WriteLine();
+            }
+        }
+        private static int[,] GenerateMatrix(int N, int M)
+        {
             var inMatrix = new int[N, M];
             var randomize = new Random();
             for (var x = 0; x < N; x++)
             {
                 for (var y = 0; y < M; y++)
                 {
-                    inMatrix[x, y] = randomize.Next(0,10);
+                    inMatrix[x, y] = randomize.Next(0, 10);
                 }
             }
-            for (var x = 0; x < N; x++)
-            {
-                for(var y = 0; y < M; y++)
-                {
-                    Console.Write($"{inMatrix[x, y],4}");
 
-                }
-                Console.WriteLine();
-            }
+            return inMatrix;
+        }
+        private static int[,] MultiplyK(int N, int M, int[,] inMatrix)
+        {
             var outMatrix = new int[N, M];
             var k = 5;
             for (var x = 0; x < N; x++)
@@ -35,15 +41,21 @@ namespace Task3.Matrix
                     outMatrix[x, y] = inMatrix[x, y] * k;
                 }
             }
-            for (var x = 0; x < N; x++)
-            {
-                for (var y = 0; y < M; y++)
-                {
-                    Console.Write($"{outMatrix[x, y],4}");
 
-                }
-                Console.WriteLine();
-            }
+            return outMatrix;
+        }
+
+        static void Main(string[] args)
+        {
+            var N = 3;
+            var M = 4;
+
+            var inMatrix = GenerateMatrix(N, M);
+            var outMatrix = MultiplyK(N, M, inMatrix);
+
+            DisplayMatrix(N, M, inMatrix);
+            DisplayMatrix(N, M, outMatrix);
+
 
             // * Задание 3.1
             // Заказчику требуется приложение позволяющщее умножать математическую матрицу на число
@@ -97,5 +109,7 @@ namespace Task3.Matrix
             //                  | 6 |  
             //
         }
+
+
     }
 }
