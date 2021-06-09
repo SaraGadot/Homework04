@@ -31,10 +31,9 @@ namespace Task3.Matrix
 
             return inMatrix;
         }
-        private static int[,] MultiplyK(int N, int M, int[,] inMatrix)
+        private static int[,] MultiplyK(int N, int M, int[,] inMatrix, int k)
         {
             var outMatrix = new int[N, M];
-            var k = 5;
             for (var x = 0; x < N; x++)
             {
                 for (var y = 0; y < M; y++)
@@ -48,7 +47,6 @@ namespace Task3.Matrix
         private static int[,] Add(int N, int M, int[,] inMatrix1, int[,] inMatrix2)
         {
             var outMatrix = new int[N, M];
-            var k = 5;
             for (var x = 0; x < N; x++)
             {
                 for (var y = 0; y < M; y++)
@@ -66,7 +64,7 @@ namespace Task3.Matrix
             var M = 4;
 
             var inMatrix = GenerateMatrix(N, M);
-            var outMatrix = MultiplyK(N, M, inMatrix);
+            var outMatrix = MultiplyK(N, M, inMatrix, 5);
 
             DisplayMatrix(N, M, inMatrix);
             DisplayMatrix(N, M, outMatrix);
