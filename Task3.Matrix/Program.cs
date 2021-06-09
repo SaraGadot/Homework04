@@ -52,7 +52,7 @@ namespace Task3.Matrix
 
         static void DisplayMultiplyK(int k, int[,] inMatrix, int[,] outMatrix)
         {
-            
+            Console.WriteLine(k);
         }
         private static int[,] Add(int[,] inMatrix1, int[,] inMatrix2)
         {
