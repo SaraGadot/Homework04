@@ -52,8 +52,14 @@ namespace Task3.Matrix
 
         static void DisplayMultiplyK(int k, int[,] inMatrix, int[,] outMatrix)
         {
-            Console.WriteLine(k);
+            var N = inMatrix.GetLength(0);
+            var M = inMatrix.GetLength(1);
+            Console.Write($"{k} * |");
+            Console.WriteLine($"{inMatrix[0,0]}");
+
+
         }
+
         private static int[,] Add(int[,] inMatrix1, int[,] inMatrix2)
         {
             var N = inMatrix1.GetLength(0);
@@ -124,6 +130,8 @@ namespace Task3.Matrix
 
             DisplayMatrix(inMatrix);
             DisplayMatrix(outMatrix);
+
+            return;
 
             var inMatrix1 = GenerateMatrix(N, M);
             var inMatrix2 = GenerateMatrix(N, M);
