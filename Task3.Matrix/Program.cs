@@ -82,6 +82,29 @@ namespace Task3.Matrix
 
             return outMatrix;
         }
+        private static int[,] Multiply(int[,] inMatrix1, int[,] inMatrix2)
+        {
+            var N = inMatrix1.GetLength(0);
+            var L = inMatrix1.GetLength(1);
+            var M = inMatrix2.GetLength(1);
+
+            var outMatrix = new int[N, M];
+            for (var x = 0; x < N; x++)
+            {
+                for (var y = 0; y < M; y++)
+                {
+                    var sum = 0;
+                    for (var i = 0; i < L; i++)
+                    {
+                        sum = sum + inMatrix1[x, i] * inMatrix2[i, y];                  
+                    }
+                    outMatrix[x, y] = sum;
+                }
+            }
+
+            return outMatrix;
+        }
+
 
         static void Main(string[] args)
         {
@@ -103,7 +126,30 @@ namespace Task3.Matrix
             DisplayMatrix(inMatrix2);
             DisplayMatrix(outMatrix2);
             DisplayMatrix(subtractMatrix);
-           
+
+            var L = 2;
+            var inMatrix3 = GenerateMatrix(N, L);
+            var inMatrix4 = GenerateMatrix(L, M);
+            var multiplyMatrix = Multiply(inMatrix3, inMatrix4);
+            DisplayMatrix(inMatrix3);
+            DisplayMatrix(inMatrix4);
+            DisplayMatrix(multiplyMatrix);
+
+            var inMatrix5 = new[,]
+            {
+                {1, 3, 5},
+                {4, 5, 7},
+                {5, 3, 1},
+            };
+            var inMatrix6 = new[,]
+            {
+                {1,  3,  4},
+                {2,  5,  6},
+                {3,  6,  7},
+            };
+            var multiplyMatrix2 = Multiply(inMatrix5, inMatrix6);
+            DisplayMatrix(multiplyMatrix2);
+
 
 
             // * Задание 3.1
