@@ -58,6 +58,20 @@ namespace Task3.Matrix
             return outMatrix;
         }
 
+        private static int[,] Subtract(int N, int M, int[,] inMatrix1, int[,] inMatrix2)
+        {
+            var outMatrix = new int[N, M];
+            for (var x = 0; x < N; x++)
+            {
+                for (var y = 0; y < M; y++)
+                {
+                    outMatrix[x, y] = inMatrix1[x, y] - inMatrix2[x, y];
+                }
+            }
+
+            return outMatrix;
+        }
+
         static void Main(string[] args)
         {
             var N = 3;
@@ -72,10 +86,12 @@ namespace Task3.Matrix
             var inMatrix1 = GenerateMatrix(N, M);
             var inMatrix2 = GenerateMatrix(N, M);
             var outMatrix2 = Add(N, M, inMatrix1, inMatrix2);
+            var subtractMatrix = Subtract(N, M, inMatrix1, inMatrix2);
 
             DisplayMatrix(N, M, inMatrix1);
             DisplayMatrix(N, M, inMatrix2);
             DisplayMatrix(N, M, outMatrix2);
+            DisplayMatrix(N, M, subtractMatrix);
            
 
 
