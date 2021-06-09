@@ -4,8 +4,10 @@ namespace Task3.Matrix
 {
     class Program
     {
-        static void DisplayMatrix(int N, int M, int[,] matrix)
+        static void DisplayMatrix(int[,] matrix)
         {
+            var N = matrix.GetLength(0);
+            var M = matrix.GetLength(1);
             for (var x = 0; x < N; x++)
             {
                 for (var y = 0; y < M; y++)
@@ -31,8 +33,11 @@ namespace Task3.Matrix
 
             return inMatrix;
         }
-        private static int[,] MultiplyK(int N, int M, int[,] inMatrix, int k)
+        private static int[,] MultiplyK(int[,] inMatrix, int k)
         {
+            var N = inMatrix.GetLength(0);
+            var M = inMatrix.GetLength(1);
+
             var outMatrix = new int[N, M];
             for (var x = 0; x < N; x++)
             {
@@ -44,8 +49,11 @@ namespace Task3.Matrix
 
             return outMatrix;
         }
-        private static int[,] Add(int N, int M, int[,] inMatrix1, int[,] inMatrix2)
+        private static int[,] Add(int[,] inMatrix1, int[,] inMatrix2)
         {
+            var N = inMatrix1.GetLength(0);
+            var M = inMatrix1.GetLength(1);
+
             var outMatrix = new int[N, M];
             for (var x = 0; x < N; x++)
             {
@@ -58,8 +66,11 @@ namespace Task3.Matrix
             return outMatrix;
         }
 
-        private static int[,] Subtract(int N, int M, int[,] inMatrix1, int[,] inMatrix2)
+        private static int[,] Subtract(int[,] inMatrix1, int[,] inMatrix2)
         {
+            var N = inMatrix1.GetLength(0);
+            var M = inMatrix1.GetLength(1);
+
             var outMatrix = new int[N, M];
             for (var x = 0; x < N; x++)
             {
@@ -78,20 +89,20 @@ namespace Task3.Matrix
             var M = 4;
 
             var inMatrix = GenerateMatrix(N, M);
-            var outMatrix = MultiplyK(N, M, inMatrix, 5);
+            var outMatrix = MultiplyK(inMatrix, 5);
 
-            DisplayMatrix(N, M, inMatrix);
-            DisplayMatrix(N, M, outMatrix);
+            DisplayMatrix(inMatrix);
+            DisplayMatrix(outMatrix);
 
             var inMatrix1 = GenerateMatrix(N, M);
             var inMatrix2 = GenerateMatrix(N, M);
-            var outMatrix2 = Add(N, M, inMatrix1, inMatrix2);
-            var subtractMatrix = Subtract(N, M, inMatrix1, inMatrix2);
+            var outMatrix2 = Add(inMatrix1, inMatrix2);
+            var subtractMatrix = Subtract(inMatrix1, inMatrix2);
 
-            DisplayMatrix(N, M, inMatrix1);
-            DisplayMatrix(N, M, inMatrix2);
-            DisplayMatrix(N, M, outMatrix2);
-            DisplayMatrix(N, M, subtractMatrix);
+            DisplayMatrix(inMatrix1);
+            DisplayMatrix(inMatrix2);
+            DisplayMatrix(outMatrix2);
+            DisplayMatrix(subtractMatrix);
            
 
 
