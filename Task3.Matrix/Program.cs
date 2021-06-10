@@ -54,9 +54,38 @@ namespace Task3.Matrix
         {
             var N = inMatrix.GetLength(0);
             var M = inMatrix.GetLength(1);
-            Console.Write($"{k} * |");
-            Console.WriteLine($"{inMatrix[0,0]}");
-
+            for (var x = 0; x < N; x++)
+            {
+                if(x == N/2)
+                {
+                    Console.Write($"{k} * ");
+                }
+                else
+                {
+                    Console.Write("    ");
+                }
+                Console.Write("|");
+                for (var y = 0; y < M; y++)
+                {
+                    Console.Write($"{inMatrix[x, y],3}");
+                }
+                Console.Write(" | ");
+                if (x == N / 2)
+                {
+                    Console.Write("=");
+                }
+                else
+                {
+                    Console.Write(" ");
+                }
+                Console.Write(" |");
+                for (var y = 0; y < M; y++)
+                {
+                    Console.Write($"{outMatrix[x, y],3}");
+                }
+                Console.Write(" |");
+                Console.WriteLine();
+            }
 
         }
 
