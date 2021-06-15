@@ -4,6 +4,58 @@ namespace Task3.Matrix
 {
     class Program
     {
+
+
+        static void Main(string[] args)
+        {
+            var N = 3;
+            var M = 4;
+
+            var inMatrix = GenerateMatrix(N, M);
+            var outMatrix = MultiplyK(inMatrix, 5);
+
+            DisplayMultiplyK(5, inMatrix, outMatrix);
+
+            return;
+
+            var inMatrix1 = GenerateMatrix(N, M);
+            var inMatrix2 = GenerateMatrix(N, M);
+            var outMatrix2 = Add(inMatrix1, inMatrix2);
+            var subtractMatrix = Subtract(inMatrix1, inMatrix2);
+
+            DisplayMatrix(inMatrix1);
+            DisplayMatrix(inMatrix2);
+            DisplayMatrix(outMatrix2);
+            DisplayMatrix(subtractMatrix);
+
+            var L = 2;
+            var inMatrix3 = GenerateMatrix(N, L);
+            var inMatrix4 = GenerateMatrix(L, M);
+            var multiplyMatrix = Multiply(inMatrix3, inMatrix4);
+            DisplayMatrix(inMatrix3);
+            DisplayMatrix(inMatrix4);
+            DisplayMatrix(multiplyMatrix);
+
+            var inMatrix5 = new[,]
+            {
+                {1, 3, 5},
+                {4, 5, 7},
+                {5, 3, 1},
+            };
+            var inMatrix6 = new[,]
+            {
+                {1,  3,  4},
+                {2,  5,  6},
+                {3,  6,  7},
+            };
+            var multiplyMatrix2 = Multiply(inMatrix5, inMatrix6);
+            DisplayMatrix(multiplyMatrix2);
+
+     
+
+
+
+        }
         static void DisplayMatrix(int[,] matrix)
         {
             var N = matrix.GetLength(0);
@@ -56,7 +108,7 @@ namespace Task3.Matrix
             var M = inMatrix.GetLength(1);
             for (var x = 0; x < N; x++)
             {
-                if(x == N/2)
+                if (x == N / 2)
                 {
                     Console.Write($"{k} * ");
                 }
@@ -136,7 +188,7 @@ namespace Task3.Matrix
                     var sum = 0;
                     for (var i = 0; i < L; i++)
                     {
-                        sum = sum + inMatrix1[x, i] * inMatrix2[i, y];                  
+                        sum = sum + inMatrix1[x, i] * inMatrix2[i, y];
                     }
                     outMatrix[x, y] = sum;
                 }
@@ -146,112 +198,56 @@ namespace Task3.Matrix
         }
 
 
-        static void Main(string[] args)
-        {
-            var N = 3;
-            var M = 4;
-
-            var inMatrix = GenerateMatrix(N, M);
-            var outMatrix = MultiplyK(inMatrix, 5);
-
-            DisplayMultiplyK(5, inMatrix, outMatrix);
-
-
-            DisplayMatrix(inMatrix);
-            DisplayMatrix(outMatrix);
-
-            return;
-
-            var inMatrix1 = GenerateMatrix(N, M);
-            var inMatrix2 = GenerateMatrix(N, M);
-            var outMatrix2 = Add(inMatrix1, inMatrix2);
-            var subtractMatrix = Subtract(inMatrix1, inMatrix2);
-
-            DisplayMatrix(inMatrix1);
-            DisplayMatrix(inMatrix2);
-            DisplayMatrix(outMatrix2);
-            DisplayMatrix(subtractMatrix);
-
-            var L = 2;
-            var inMatrix3 = GenerateMatrix(N, L);
-            var inMatrix4 = GenerateMatrix(L, M);
-            var multiplyMatrix = Multiply(inMatrix3, inMatrix4);
-            DisplayMatrix(inMatrix3);
-            DisplayMatrix(inMatrix4);
-            DisplayMatrix(multiplyMatrix);
-
-            var inMatrix5 = new[,]
-            {
-                {1, 3, 5},
-                {4, 5, 7},
-                {5, 3, 1},
-            };
-            var inMatrix6 = new[,]
-            {
-                {1,  3,  4},
-                {2,  5,  6},
-                {3,  6,  7},
-            };
-            var multiplyMatrix2 = Multiply(inMatrix5, inMatrix6);
-            DisplayMatrix(multiplyMatrix2);
-
-     
-
-
-
-            // * Задание 3.1
-            // Заказчику требуется приложение позволяющщее умножать математическую матрицу на число
-            // Справка https://ru.wikipedia.org/wiki/Матрица_(математика)
-            // Справка https://ru.wikipedia.org/wiki/Матрица_(математика)#Умножение_матрицы_на_число
-            // Добавить возможность ввода количество строк и столцов матрицы и число,
-            // на которое будет производиться умножение.
-            // Матрицы заполняются автоматически. 
-            // Если по введённым пользователем данным действие произвести невозможно - сообщить об этом
-            //
-            // Пример
-            //
-            //      |  1  3  5  |   |  5  15  25  |
-            //  5 х |  4  5  7  | = | 20  25  35  |
-            //      |  5  3  1  |   | 25  15   5  |
-            //
-            //
-            // ** Задание 3.2
-            // Заказчику требуется приложение позволяющщее складывать и вычитать математические матрицы
-            // Справка https://ru.wikipedia.org/wiki/Матрица_(математика)
-            // Справка https://ru.wikipedia.org/wiki/Матрица_(математика)#Сложение_матриц
-            // Добавить возможность ввода количество строк и столцов матрицы.
-            // Матрицы заполняются автоматически
-            // Если по введённым пользователем данным действие произвести невозможно - сообщить об этом
-            //
-            // Пример
-            //  |  1  3  5  |   |  1  3  4  |   |  2   6   9  |
-            //  |  4  5  7  | + |  2  5  6  | = |  6  10  13  |
-            //  |  5  3  1  |   |  3  6  7  |   |  8   9   8  |
-            //  
-            //  
-            //  |  1  3  5  |   |  1  3  4  |   |  0   0   1  |
-            //  |  4  5  7  | - |  2  5  6  | = |  2   0   1  |
-            //  |  5  3  1  |   |  3  6  7  |   |  2  -3  -6  |
-            //
-            // *** Задание 3.3
-            // Заказчику требуется приложение позволяющщее перемножать математические матрицы
-            // Справка https://ru.wikipedia.org/wiki/Матрица_(математика)
-            // Справка https://ru.wikipedia.org/wiki/Матрица_(математика)#Умножение_матриц
-            // Добавить возможность ввода количество строк и столцов матрицы.
-            // Матрицы заполняются автоматически
-            // Если по введённым пользователем данным действие произвести нельзя - сообщить об этом
-            //  
-            //  |  1  3  5  |   |  1  3  4  |   | 22  48  57  |
-            //  |  4  5  7  | х |  2  5  6  | = | 35  79  95  |
-            //  |  5  3  1  |   |  3  6  7  |   | 14  36  45  |
-            //
-            //  
-            //                  | 4 |   
-            //  |  1  2  3  | х | 5 | = | 32 |
-            //                  | 6 |  
-            //
-        }
-
-
+        // * Задание 3.1
+        // Заказчику требуется приложение позволяющщее умножать математическую матрицу на число
+        // Справка https://ru.wikipedia.org/wiki/Матрица_(математика)
+        // Справка https://ru.wikipedia.org/wiki/Матрица_(математика)#Умножение_матрицы_на_число
+        // Добавить возможность ввода количество строк и столцов матрицы и число,
+        // на которое будет производиться умножение.
+        // Матрицы заполняются автоматически. 
+        // Если по введённым пользователем данным действие произвести невозможно - сообщить об этом
+        //
+        // Пример
+        //
+        //      |  1  3  5  |   |  5  15  25  |
+        //  5 х |  4  5  7  | = | 20  25  35  |
+        //      |  5  3  1  |   | 25  15   5  |
+        //
+        //
+        // ** Задание 3.2
+        // Заказчику требуется приложение позволяющщее складывать и вычитать математические матрицы
+        // Справка https://ru.wikipedia.org/wiki/Матрица_(математика)
+        // Справка https://ru.wikipedia.org/wiki/Матрица_(математика)#Сложение_матриц
+        // Добавить возможность ввода количество строк и столцов матрицы.
+        // Матрицы заполняются автоматически
+        // Если по введённым пользователем данным действие произвести невозможно - сообщить об этом
+        //
+        // Пример
+        //  |  1  3  5  |   |  1  3  4  |   |  2   6   9  |
+        //  |  4  5  7  | + |  2  5  6  | = |  6  10  13  |
+        //  |  5  3  1  |   |  3  6  7  |   |  8   9   8  |
+        //  
+        //  
+        //  |  1  3  5  |   |  1  3  4  |   |  0   0   1  |
+        //  |  4  5  7  | - |  2  5  6  | = |  2   0   1  |
+        //  |  5  3  1  |   |  3  6  7  |   |  2  -3  -6  |
+        //
+        // *** Задание 3.3
+        // Заказчику требуется приложение позволяющщее перемножать математические матрицы
+        // Справка https://ru.wikipedia.org/wiki/Матрица_(математика)
+        // Справка https://ru.wikipedia.org/wiki/Матрица_(математика)#Умножение_матриц
+        // Добавить возможность ввода количество строк и столцов матрицы.
+        // Матрицы заполняются автоматически
+        // Если по введённым пользователем данным действие произвести нельзя - сообщить об этом
+        //  
+        //  |  1  3  5  |   |  1  3  4  |   | 22  48  57  |
+        //  |  4  5  7  | х |  2  5  6  | = | 35  79  95  |
+        //  |  5  3  1  |   |  3  6  7  |   | 14  36  45  |
+        //
+        //  
+        //                  | 4 |   
+        //  |  1  2  3  | х | 5 | = | 32 |
+        //                  | 6 |  
+        //
     }
 }
