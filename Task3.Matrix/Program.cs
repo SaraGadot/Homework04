@@ -17,18 +17,16 @@ namespace Task3.Matrix
             DisplayMultiplyK(5, inMatrix, outMatrix);
             Console.WriteLine();
 
-
             var inMatrix1 = GenerateMatrix(N, M);
             var inMatrix2 = GenerateMatrix(N, M);
             var outMatrix2 = Add(inMatrix1, inMatrix2);
-            DisplayAdd(inMatrix1, inMatrix2, outMatrix2);
+            DisplayAddOrSubtract(inMatrix1, inMatrix2, outMatrix2, "+");
+
+            Console.WriteLine();
 
             var subtractMatrix = Subtract(inMatrix1, inMatrix2);
 
-            DisplayMatrix(inMatrix1);
-            DisplayMatrix(inMatrix2);
-            DisplayMatrix(outMatrix2);
-            DisplayMatrix(subtractMatrix);
+            DisplayAddOrSubtract(inMatrix1, inMatrix2, subtractMatrix, "-");
 
             return;
 
@@ -145,20 +143,12 @@ namespace Task3.Matrix
 
         }
 
-        static void DisplayAdd(int[,] inMatrix1, int[,] inMatrix2, int[,] outMatrix)
+        static void DisplayAddOrSubtract(int[,] inMatrix1, int[,] inMatrix2, int[,] outMatrix, string sign)
         {
             var N = inMatrix1.GetLength(0);
             var M = inMatrix1.GetLength(1);
             for (var x = 0; x < N; x++)
             {
-                //if (x == N / 2)
-                //{
-                //    //Console.Write($"{k} * ");
-                //}
-                //else
-                //{
-                //    Console.Write("    ");
-                //}
                 Console.Write("    |");
                 for (var y = 0; y < M; y++)
                 {
@@ -168,7 +158,7 @@ namespace Task3.Matrix
 
                 if (x == N / 2)
                 {
-                    Console.Write("+");
+                    Console.Write(sign);
                 }
                 else
                 {
