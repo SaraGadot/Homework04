@@ -15,18 +15,22 @@ namespace Task3.Matrix
             var outMatrix = MultiplyK(inMatrix, 5);
 
             DisplayMultiplyK(5, inMatrix, outMatrix);
+            Console.WriteLine();
 
-            return;
 
             var inMatrix1 = GenerateMatrix(N, M);
             var inMatrix2 = GenerateMatrix(N, M);
             var outMatrix2 = Add(inMatrix1, inMatrix2);
+            DisplayAdd(inMatrix1, inMatrix2, outMatrix2);
+
             var subtractMatrix = Subtract(inMatrix1, inMatrix2);
 
             DisplayMatrix(inMatrix1);
             DisplayMatrix(inMatrix2);
             DisplayMatrix(outMatrix2);
             DisplayMatrix(subtractMatrix);
+
+            return;
 
             var L = 2;
             var inMatrix3 = GenerateMatrix(N, L);
@@ -141,6 +145,61 @@ namespace Task3.Matrix
 
         }
 
+        static void DisplayAdd(int[,] inMatrix1, int[,] inMatrix2, int[,] outMatrix)
+        {
+            var N = inMatrix1.GetLength(0);
+            var M = inMatrix1.GetLength(1);
+            for (var x = 0; x < N; x++)
+            {
+                //if (x == N / 2)
+                //{
+                //    //Console.Write($"{k} * ");
+                //}
+                //else
+                //{
+                //    Console.Write("    ");
+                //}
+                Console.Write("    |");
+                for (var y = 0; y < M; y++)
+                {
+                    Console.Write($"{inMatrix1[x, y],3}");
+                }
+                Console.Write(" | ");
+
+                if (x == N / 2)
+                {
+                    Console.Write("+");
+                }
+                else
+                {
+                    Console.Write(" ");
+                }
+
+
+                Console.Write(" |");
+                for (var y = 0; y < M; y++)
+                {
+                    Console.Write($"{inMatrix2[x, y],3}");
+                }
+                Console.Write(" | ");
+                if (x == N / 2)
+                {
+                    Console.Write("=");
+                }
+                else
+                {
+                    Console.Write(" ");
+                }
+                Console.Write(" |");
+                for (var y = 0; y < M; y++)
+                {
+                    Console.Write($"{outMatrix[x, y],3}");
+                }
+                Console.Write(" |");
+                Console.WriteLine();
+            }
+
+        }
         private static int[,] Add(int[,] inMatrix1, int[,] inMatrix2)
         {
             var N = inMatrix1.GetLength(0);
