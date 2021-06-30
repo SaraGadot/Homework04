@@ -28,30 +28,31 @@ namespace Task3.Matrix
 
             DisplayAddOrSubtract(inMatrix1, inMatrix2, subtractMatrix, "-");
 
-            return;
+            Console.WriteLine();
+
+           
+
 
             var L = 2;
             var inMatrix3 = GenerateMatrix(N, L);
             var inMatrix4 = GenerateMatrix(L, M);
             var multiplyMatrix = Multiply(inMatrix3, inMatrix4);
-            DisplayMatrix(inMatrix3);
-            DisplayMatrix(inMatrix4);
-            DisplayMatrix(multiplyMatrix);
+            DisplayMultiply(inMatrix3, inMatrix4, multiplyMatrix);
 
-            var inMatrix5 = new[,]
-            {
-                {1, 3, 5},
-                {4, 5, 7},
-                {5, 3, 1},
-            };
-            var inMatrix6 = new[,]
-            {
-                {1,  3,  4},
-                {2,  5,  6},
-                {3,  6,  7},
-            };
-            var multiplyMatrix2 = Multiply(inMatrix5, inMatrix6);
-            DisplayMatrix(multiplyMatrix2);
+            //var inMatrix5 = new[,]
+            //{
+            //    {1, 3, 5},
+            //    {4, 5, 7},
+            //    {5, 3, 1},
+            //};
+            //var inMatrix6 = new[,]
+            //{
+            //    {1,  3,  4},
+            //    {2,  5,  6},
+            //    {3,  6,  7},
+            //};
+            //var multiplyMatrix2 = Multiply(inMatrix5, inMatrix6);
+            //DisplayMatrix(multiplyMatrix2);
 
      
 
@@ -190,6 +191,101 @@ namespace Task3.Matrix
             }
 
         }
+
+        static void DisplayMultiply(int[,] inMatrix1, int[,] inMatrix2, int[,] outMatrix)
+        {
+            var N = outMatrix.GetLength(0);
+            var M = outMatrix.GetLength(1);
+            var L = inMatrix1.GetLength(1);
+            var rows = Math.Max(N, L);
+
+            for (var x = 0; x < rows; x++)
+            {
+                if (x < N)
+                {
+                    Console.Write("    |");
+                    for (var y = 0; y < L; y++)
+                    {
+                        Console.Write($"{inMatrix1[x, y],3}");
+                    }
+                    Console.Write(" | ");
+                }
+                else
+                {
+                    Console.Write("     ");
+                    for (var y = 0; y < L; y++)
+                    {
+                        Console.Write("   ");
+                    }
+                    Console.Write("   ");
+
+                }
+
+                if (x == rows / 2)
+                {
+                    Console.Write("*");
+                }
+                else
+                {
+                    Console.Write(" ");
+                }
+
+                if (x < L)
+                {
+                    Console.Write(" |");
+                    for (var y = 0; y < M; y++)
+                    {
+                        Console.Write($"{inMatrix2[x, y],3}");
+                    }
+                    Console.Write(" | ");
+
+                }
+                else
+                {
+                    Console.Write("  ");
+                    for (var y = 0; y < M; y++)
+                    {
+                        Console.Write("   ");
+                    }
+                    Console.Write("   ");
+                }
+
+                if (x == rows / 2)
+                {
+                    Console.Write("=");
+                }
+                else
+                {
+                    Console.Write(" ");
+                }
+
+                if (x < N)
+                {
+                    Console.Write(" |");
+                    for (var y = 0; y < M; y++)
+                    {
+                        Console.Write($"{outMatrix[x, y],3}");
+                    }
+                    Console.Write(" |");
+                }
+                else
+                {
+                    Console.Write("  ");
+                    for (var y = 0; y < M; y++)
+                    {
+                        Console.Write("   ");
+                    }
+                    Console.Write("  ");
+
+                }
+
+
+
+                Console.WriteLine();
+            }
+
+        }
+
         private static int[,] Add(int[,] inMatrix1, int[,] inMatrix2)
         {
             var N = inMatrix1.GetLength(0);
