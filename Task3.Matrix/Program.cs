@@ -239,7 +239,7 @@ namespace Task3.Matrix
 
                 }
 
-                if (x == rows / 2)
+                if (x == Math.Min(N,L)  / 2)
                 {
                     Console.Write("*");
                 }
@@ -268,7 +268,7 @@ namespace Task3.Matrix
                     Console.Write("   ");
                 }
 
-                if (x == rows / 2)
+                if (x == Math.Min(N, L) / 2)
                 {
                     Console.Write("=");
                 }
