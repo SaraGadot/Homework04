@@ -8,8 +8,13 @@ namespace Task3.Matrix
 
         static void Main(string[] args)
         {
-            var N = 3;
-            var M = 4;
+            Console.WriteLine("Введите количество строк матриц");
+
+            var N = ReadInt(1,10);
+
+            Console.WriteLine("Введите количество столбцов матриц");
+
+            var M = Convert.ToInt32(Console.ReadLine());
 
             var inMatrix = GenerateMatrix(N, M);
             var outMatrix = MultiplyK(inMatrix, 5);
@@ -59,6 +64,19 @@ namespace Task3.Matrix
 
 
         }
+        static int ReadInt(int min, int max)
+        {
+            for (; ; )
+            {
+                var i = Convert.ToInt32(Console.ReadLine());
+                if (i < max && i >= min)
+                {
+                    return i;
+                }
+                Console.WriteLine($"Введите число от {min} до {max}");
+            }
+        }
+
         static void DisplayMatrix(int[,] matrix)
         {
             var N = matrix.GetLength(0);
