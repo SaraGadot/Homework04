@@ -113,16 +113,16 @@ namespace Task3.Matrix
             {
                 if (x == N / 2)
                 {
-                    Console.Write($"{k} * ");
+                    Console.Write($"{k, 4} * ");
                 }
                 else
                 {
-                    Console.Write("    ");
+                    Console.Write("       ");
                 }
                 Console.Write("|");
                 for (var y = 0; y < M; y++)
                 {
-                    Console.Write($"{inMatrix[x, y],3}");
+                    Console.Write($"{inMatrix[x, y],4}");
                 }
                 Console.Write(" | ");
                 if (x == N / 2)
@@ -136,7 +136,7 @@ namespace Task3.Matrix
                 Console.Write(" |");
                 for (var y = 0; y < M; y++)
                 {
-                    Console.Write($"{outMatrix[x, y],3}");
+                    Console.Write($"{outMatrix[x, y],4}");
                 }
                 Console.Write(" |");
                 Console.WriteLine();
@@ -153,7 +153,7 @@ namespace Task3.Matrix
                 Console.Write("    |");
                 for (var y = 0; y < M; y++)
                 {
-                    Console.Write($"{inMatrix1[x, y],3}");
+                    Console.Write($"{inMatrix1[x, y],4}");
                 }
                 Console.Write(" | ");
 
@@ -170,7 +170,7 @@ namespace Task3.Matrix
                 Console.Write(" |");
                 for (var y = 0; y < M; y++)
                 {
-                    Console.Write($"{inMatrix2[x, y],3}");
+                    Console.Write($"{inMatrix2[x, y],4}");
                 }
                 Console.Write(" | ");
                 if (x == N / 2)
@@ -184,7 +184,7 @@ namespace Task3.Matrix
                 Console.Write(" |");
                 for (var y = 0; y < M; y++)
                 {
-                    Console.Write($"{outMatrix[x, y],3}");
+                    Console.Write($"{outMatrix[x, y],4}");
                 }
                 Console.Write(" |");
                 Console.WriteLine();
@@ -206,7 +206,7 @@ namespace Task3.Matrix
                     Console.Write("    |");
                     for (var y = 0; y < L; y++)
                     {
-                        Console.Write($"{inMatrix1[x, y],3}");
+                        Console.Write($"{inMatrix1[x, y],4}");
                     }
                     Console.Write(" | ");
                 }
@@ -215,7 +215,7 @@ namespace Task3.Matrix
                     Console.Write("     ");
                     for (var y = 0; y < L; y++)
                     {
-                        Console.Write("   ");
+                        Console.Write("    ");
                     }
                     Console.Write("   ");
 
@@ -235,7 +235,7 @@ namespace Task3.Matrix
                     Console.Write(" |");
                     for (var y = 0; y < M; y++)
                     {
-                        Console.Write($"{inMatrix2[x, y],3}");
+                        Console.Write($"{inMatrix2[x, y],4}");
                     }
                     Console.Write(" | ");
 
@@ -245,7 +245,7 @@ namespace Task3.Matrix
                     Console.Write("  ");
                     for (var y = 0; y < M; y++)
                     {
-                        Console.Write("   ");
+                        Console.Write("    ");
                     }
                     Console.Write("   ");
                 }
@@ -264,7 +264,7 @@ namespace Task3.Matrix
                     Console.Write(" |");
                     for (var y = 0; y < M; y++)
                     {
-                        Console.Write($"{outMatrix[x, y],3}");
+                        Console.Write($"{outMatrix[x, y],4}");
                     }
                     Console.Write(" |");
                 }
@@ -273,7 +273,7 @@ namespace Task3.Matrix
                     Console.Write("  ");
                     for (var y = 0; y < M; y++)
                     {
-                        Console.Write("   ");
+                        Console.Write("    ");
                     }
                     Console.Write("  ");
 
