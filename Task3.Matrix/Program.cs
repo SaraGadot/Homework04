@@ -8,18 +8,22 @@ namespace Task3.Matrix
 
         static void Main(string[] args)
         {
-            Console.WriteLine("Введите количество строк матриц");
+            Console.WriteLine("Введите количество строк матрицы");
 
-            var N = ReadInt(1,10);
+            var N = ReadInt(1,5);
 
-            Console.WriteLine("Введите количество столбцов матриц");
+            Console.WriteLine("Введите количество столбцов матрицы");
 
-            var M = Convert.ToInt32(Console.ReadLine());
+            var M = ReadInt(1,5);
+
+            Console.WriteLine("Введите число, на которое будет производиться умножение");
+            
+            var k = ReadInt(-100, 100);
 
             var inMatrix = GenerateMatrix(N, M);
-            var outMatrix = MultiplyK(inMatrix, 5);
+            var outMatrix = MultiplyK(inMatrix, k);
 
-            DisplayMultiplyK(5, inMatrix, outMatrix);
+            DisplayMultiplyK(k, inMatrix, outMatrix);
             Console.WriteLine();
 
             var inMatrix1 = GenerateMatrix(N, M);
@@ -35,10 +39,8 @@ namespace Task3.Matrix
 
             Console.WriteLine();
 
-           
-
-
-            var L = 2;
+            Console.WriteLine("Введите вспомогательный размер матрицы (для умножения)");
+            var L = ReadInt(1,5);
             var inMatrix3 = GenerateMatrix(N, L);
             var inMatrix4 = GenerateMatrix(L, M);
             var multiplyMatrix = Multiply(inMatrix3, inMatrix4);
